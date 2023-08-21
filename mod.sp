@@ -4,35 +4,16 @@ mod "Infosec-Cost" {
 
 query "Cloudtrail" {
   sql = <<-EOQ
-    SELECT
-
+ SELECT
   to_char(period_end, 'Mon-YY') as "Month",
   net_amortized_cost_amount
-
 FROM
-  (
-    SELECT
-      period_start,
-      period_end,
-      net_amortized_cost_amount,
-      net_amortized_cost_unit,
-      ROW_NUMBER() OVER (
-        PARTITION BY
-          service
-        ORDER BY
-          period_start DESC,
-          period_end DESC
-      ) AS row_num
-    FROM
       aws.aws_cost_by_service_monthly
-    WHERE
-      service = 'AWS CloudTrail'
-  ) ranked_data
 WHERE
-  row_num <= 6
-ORDER BY
-  period_start ASC,
-  period_end ASC;
+      service = 'AWS CloudTrail'
+      
+order by
+  period_end;
 
   EOQ
 }
@@ -41,32 +22,15 @@ ORDER BY
 query "AWS Config" {
   sql = <<-EOQ
     SELECT
-   to_char(period_end, 'Mon-YY') as "Month",
+  to_char(period_end, 'Mon-YY') as "Month",
   net_amortized_cost_amount
 FROM
-  (
-    SELECT
-      period_start,
-      period_end,
-      net_amortized_cost_amount,
-      net_amortized_cost_unit,
-      ROW_NUMBER() OVER (
-        PARTITION BY
-          service
-        ORDER BY
-          period_start DESC,
-          period_end DESC
-      ) AS row_num
-    FROM
       aws.aws_cost_by_service_monthly
-    WHERE
-      service = 'AWS Config'
-  ) ranked_data
 WHERE
-  row_num <= 6
-ORDER BY
-  period_start ASC,
-  period_end ASC;
+      service = 'AWS Config'
+      
+order by
+  period_end;
 
   EOQ
 }
@@ -74,132 +38,63 @@ ORDER BY
 query "AWS WAF" {
   sql = <<-EOQ
     SELECT
- to_char(period_end, 'Mon-YY') as "Month",
+  to_char(period_end, 'Mon-YY') as "Month",
   net_amortized_cost_amount
 FROM
-  (
-    SELECT
-      period_start,
-      period_end,
-      net_amortized_cost_amount,
-      net_amortized_cost_unit,
-      ROW_NUMBER() OVER (
-        PARTITION BY
-          service
-        ORDER BY
-          period_start DESC,
-          period_end DESC
-      ) AS row_num
-    FROM
       aws.aws_cost_by_service_monthly
-    WHERE
-      service = 'AWS WAF'
-  ) ranked_data
 WHERE
-  row_num <= 6
-ORDER BY
-  period_start ASC,
-  period_end ASC;
+      service = 'AWS WAF'
+      
+order by
+  period_end;
 
   EOQ
 }
 
 query "Amazon Inspector" {
   sql = <<-EOQ
-    SELECT
-   to_char(period_end, 'Mon-YY') as "Month",
+   SELECT
+  to_char(period_end, 'Mon-YY') as "Month",
   net_amortized_cost_amount
 FROM
-  (
-    SELECT
-      period_start,
-      period_end,
-      net_amortized_cost_amount,
-      net_amortized_cost_unit,
-      ROW_NUMBER() OVER (
-        PARTITION BY
-          service
-        ORDER BY
-          period_start DESC,
-          period_end DESC
-      ) AS row_num
-    FROM
       aws.aws_cost_by_service_monthly
-    WHERE
-      service = 'Amazon Inspector'
-  ) ranked_data
 WHERE
-  row_num <= 6
-ORDER BY
-  period_start ASC,
-  period_end ASC;
+      service = 'Amazon Inspector'
+      
+order by
+  period_end;
 
   EOQ
 }
 
 query "AmazonCloudWatch" {
   sql = <<-EOQ
-    SELECT
+     SELECT
   to_char(period_end, 'Mon-YY') as "Month",
   net_amortized_cost_amount
 FROM
-  (
-    SELECT
-      period_start,
-      period_end,
-      net_amortized_cost_amount,
-      net_amortized_cost_unit,
-      ROW_NUMBER() OVER (
-        PARTITION BY
-          service
-        ORDER BY
-          period_start DESC,
-          period_end DESC
-      ) AS row_num
-    FROM
       aws.aws_cost_by_service_monthly
-    WHERE
-      service = 'AmazonCloudWatch'
-  ) ranked_data
 WHERE
-  row_num <= 6
-ORDER BY
-  period_start ASC,
-  period_end ASC;
+      service = 'AmazonCloudWatch'
+      
+order by
+  period_end;
 
   EOQ
 }
 
 query "Amazon GuardDuty" {
   sql = <<-EOQ
-    SELECT
+     SELECT
   to_char(period_end, 'Mon-YY') as "Month",
   net_amortized_cost_amount
 FROM
-  (
-    SELECT
-      period_start,
-      period_end,
-      net_amortized_cost_amount,
-      net_amortized_cost_unit,
-      ROW_NUMBER() OVER (
-        PARTITION BY
-          service
-        ORDER BY
-          period_start DESC,
-          period_end DESC
-      ) AS row_num
-    FROM
       aws.aws_cost_by_service_monthly
-    WHERE
-      service = 'Amazon GuardDuty'
-  ) ranked_data
 WHERE
-  row_num <= 6
-ORDER BY
-  period_start ASC,
-  period_end ASC;
-
+      service = 'Amazon GuardDuty'
+      
+order by
+  period_end;
   EOQ
 }
 
