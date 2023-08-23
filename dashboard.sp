@@ -3,7 +3,7 @@ dashboard "Infosec-Cost" {
 
 
   text {
-    value = "This will guide you through the key concepts of building your own dashboards."
+    value = "This dashboard shows all the Infosec Infra spents "
   }
   container {
 
