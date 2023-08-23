@@ -11,11 +11,13 @@ dashboard "Infosec-Cost" {
     title="CloudTrail"
     query= query.Cloudtrail
     type="column"
+    width= 4
   }
     chart {
     title = "AWS Config"
     query = query.AWS-Config
     type  = "column"
+    width= 4
 
   }
     chart {
