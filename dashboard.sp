@@ -24,18 +24,21 @@ dashboard "Infosec-Cost" {
     title = "AWS WAF"
     query = query.AWS-WAF
     type  = "column"
+    width = 4
 
   }
     chart {
     title = "Amazon Inspector"
     query = query.Amazon-Inspector
     type  = "column"
+    width = 6
 
   }
     chart {
     title = "AmazonCloudWatch"
     query = query.AmazonCloudWatch
     type  = "column"
+    width = 6
   
   }
 
