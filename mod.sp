@@ -18,8 +18,7 @@ order by
   EOQ
 }
 
-
-query "AWS Config" {
+query "AWS-Config" {
   sql = <<-EOQ
     SELECT
   to_char(period_end, 'Mon-YY') as "Month",
@@ -35,7 +34,8 @@ order by
   EOQ
 }
 
-query "AWS WAF" {
+
+query "AWS-WAF" {
   sql = <<-EOQ
     SELECT
   to_char(period_end, 'Mon-YY') as "Month",
@@ -51,7 +51,7 @@ order by
   EOQ
 }
 
-query "Amazon Inspector" {
+query "Amazon-Inspector" {
   sql = <<-EOQ
    SELECT
   to_char(period_end, 'Mon-YY') as "Month",
@@ -83,7 +83,7 @@ order by
   EOQ
 }
 
-query "Amazon GuardDuty" {
+query "Amazon-GuardDuty" {
   sql = <<-EOQ
      SELECT
   to_char(period_end, 'Mon-YY') as "Month",
