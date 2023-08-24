@@ -5,14 +5,16 @@ dashboard "Infosec-Cost" {
   text {
     value = "This dashboard shows all the Infosec Infra spents "
   }
+container{
 
   chart {
-  type = "pie"
-  title = "Total Infosec spent each month"
+  type= "pie"
+  title= "Total Infosec spent each month"
   query= query.Infosec-cost
+  width= 8
   }
-
-
+}
+  
   container {
 
     chart {
