@@ -1,15 +1,15 @@
 dashboard "Infosec-Cost" {
-  title = "Infosec Cost" 
+  title = "Infosec Compliance Cost" 
 
 
   text {
-    value = "This dashboard shows all the Infosec Infra spents "
+    value = "Infosec Compliance Cost "
   }
 container{
 
   chart {
-  type= "pie"
-  title= "Total Infosec spent each month"
+  type= "column"
+  title= "Periodic cost for maintaining compliance"
   query= query.Infosec-cost
   width= 8
   }
