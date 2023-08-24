@@ -116,9 +116,7 @@ WHERE
     'Amazon GuardDuty'
   )
 GROUP BY
-  DATE_TRUNC('month', period_end)
-ORDER BY
-  month ASC;
+  DATE_TRUNC('month', period_end);
 
 EOQ
 }
