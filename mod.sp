@@ -102,7 +102,7 @@ order by
 query "Infosec-cost" {
   sql = <<-EOQ
     SELECT
- TO_CHAR(DATE_TRUNC('month', period_end), 'Month YYYY') AS month,
+  DATE_TRUNC('month', period_start) AS month,
   SUM(net_amortized_cost_amount) AS total_spent
 FROM
   aws.aws_cost_by_service_monthly
@@ -116,7 +116,9 @@ WHERE
     'Amazon GuardDuty'
   )
 GROUP BY
-  DATE_TRUNC('month', period_end);
+  DATE_TRUNC('month', period_start)
+ORDER BY
+  month ASC;
 
 EOQ
 }
